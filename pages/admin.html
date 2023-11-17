@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аптека</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+              <div class="logo">
+                <div class="logo__img">
+                  <a href="../index.html">
+                    <img src="/icons/logo.png" alt="" />
+                  </a>
+                </div>
+                <div class="logo__name">
+                  <a href="../index.html">Аптека АПТЕК</a>
+                </div>
+              </div>
+              <div class="search">
+                <form class="search__form">
+                  <input
+                    type="text"
+                    name="text"
+                    class="search_field"
+                    placeholder="Поиск лекарств по названию"
+                  />
+                  <button type="submit" name="submit" class="submit" value="Поиск">
+                    Поиск
+                  </button>
+                </form>
+              </div>
+              <nav class="nav">
+                <div class="nav__container">
+                  <div class="catalog">
+                    <div class="katalog__img">
+                      <img src="/icons/katalog.png" alt="" />
+                    </div>
+                    <div class="katalog_ref">
+                      <a href="../index.html">Каталог</a>
+                    </div>
+                  </div>
+                  <div class="auth">
+                    <div class="user__img">
+                      <img src="/icons/user_icon.png" alt="" />
+                    </div>
+                    <div class="auth__ref">
+                      <a href="/pages/auth.html">Войти</a>
+                    </div>
+                  </div>
+                  <div class="basket">
+                    <div class="basket__img">
+                      <img src="/icons/basket.png" alt="" />
+                    </div>
+                    <div class="basket__ref">
+                      <a href="/pages/basket.html">Корзина</a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </header>
+    
+        
+        <div class="cart">
+            <div class="cart__container"> 
+                <h3 class="cart__title">
+                    Управление товарами
+                </h3>
+                <div class="cart__buttons">
+                    <div class="cart__button">
+                        <button class="control__button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Добавить
+                        </button>
+                    </div>
+                </div> 
+              <div class="cart__items">
+                <div class="cart__item">
+                  <div class="item-cart">
+                    <div class="item-cart__image">
+                      <img src="/images/бальзам1.jpg" alt="">
+                    </div>
+                    <div class="item-cart__content">
+                      <h4 class="item-cart__title">Cegth njdfh</h4>
+                      <p class="item-cart__descr">Super opicanyasdasjkd asnkd samd asdsadasd</p>
+                    </div>
+                    <div class="item-cart__counter">
+                        <input type="number" id="typeNumber" class="form-control" />
+                    </div>
+                    <div class="item-cart__price">
+                      1999р.
+                    </div>
+                    <div class="item-cart__delete">
+                      <button type="button" class="btn-close btn btn-secondary" 
+                      aria-label="Close" data-bs-toggle="tooltip" 
+                      data-bs-placement="right" title="Удалить"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <footer class="footer">
+            <ul class="footer__list">
+                <div class="footer__logo">
+                    <div class="footer__img">
+                        <a href="../index.html">
+                            <img src="/icons/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="footer__name">
+                        <a href="../index.html">Аптека АПТЕК</a>
+                    </div>
+                </div>
+            </ul>
+            <ul class="footer__list">
+                <li class="footer__item">
+                    Сайт создал
+                    <a href="https://t.me/Mne13Years">Соколовский Денис Игоревич</a>
+                </li>
+                <li class="footer__item"></li>
+                <li class="footer__item"></li>
+                <li class="footer__item"></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

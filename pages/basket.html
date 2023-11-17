@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аптека</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/bankCard.css" />
+    <link rel="stylesheet" href="/styles/basket.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+
+
+    <script src="/scripts/bankCard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
+
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="logo">
+            <div class="logo__img">
+              <a href="../index.html">
+                <img src="/icons/logo.png" alt="" />
+              </a>
+            </div>
+            <div class="logo__name">
+              <a href="../index.html">Аптека АПТЕК</a>
+            </div>
+          </div>
+          
+          <nav class="nav">
+            <div class="nav__container">
+              <div class="catalog">
+                <div class="katalog__img">
+                  <img src="/icons/katalog.png" alt="" />
+                </div>
+                <div class="katalog_ref">
+                  <a href="../index.html">Каталог</a>
+                </div>
+              </div>
+              <div class="auth">
+                <div class="user__img">
+                  <img src="/icons/user_icon.png" alt="" />
+                </div>
+                <div class="auth__ref">
+                  <a href="/pages/auth.html">Войти</a>
+                </div>
+              </div>
+              <div class="basket">
+                <div class="basket__img">
+                  <img src="/icons/basket.png" alt="" />
+                </div>
+                <div class="basket__ref">
+                  <a href="/pages/basket.html">Корзина</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+
+      
+      <div class="cart">
+        <div class="cart__container"> 
+          <div class="button__buy">
+            <div class="cart__title">
+              <h3>Корзина</h3> 
+            </div>
+            <div class="window__buy">
+
+              <div class = "but__buy">
+                <button class="buy__button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Купить
+                </button>
+              </div>              
+            </div>
+          </div>  
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <form class="row g-3">
+                <div class="col-md-4">
+                  <label for="validationDefault01" class="form-label">Имя</label>
+                  <input type="text" class="form-control" id="validationDefault01" value="Иван" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault02" class="form-label">Фамилия</label>
+                  <input type="text" class="form-control" id="validationDefault02" value="Петров" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault03" class="form-label">Город</label>
+                  <input type="text" class="form-control" id="validationDefault03" pattern="[А-Яа-я]+" title="Допускается ввод только буквенных символов" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault05" class="form-label">Телефон</label>
+                  <input type="text" class="form-control" value = "+375441111111" placeholder="+375 ( ) ___ -- __ -- __" pattern="^\+375\d{9}$" id="validationDefault05" required>
+                </div>
+                <div class="card__field">
+
+
+                  <div class="container preload">
+                    <div class="creditcard">
+                      <div class="front">
+                        <div id="ccsingle"></div>
+                        <svg version="1.1" id="cardfront" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+                          x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                          <g id="Front">
+                            <g id="CardBackground">
+                              <g id="Page-1_1_">
+                                <g id="amex_1_">
+                                  <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                        C0,17.9,17.9,0,40,0z" />
+                                </g>
+                              </g>
+                              <path class="darkcolor greydark"
+                                d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+                            </g>
+                            <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">0000 0000 0000
+                              0000</text>
+                            <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">IVANOV IVAN</text>
+                            <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
+                            <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
+                            <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
+                            <g>
+                              <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9">01/23</text>
+                              <text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">VALID</text>
+                              <text transform="matrix(1 0 0 1 479.3848 435.6762)" class="st2 st10 st11">THRU</text>
+                              <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                            </g>
+                            <g id="cchip">
+                              <g>
+                                <path class="st2" d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                                    c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+                              </g>
+                              <g>
+                                <g>
+                                  <rect x="82" y="70" class="st12" width="1.5" height="60" />
+                                </g>
+                                <g>
+                                  <rect x="167.4" y="70" class="st12" width="1.5" height="60" />
+                                </g>
+                                <g>
+                                  <path class="st12" d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                                        c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                                        C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                                        c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                                        c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
+                                </g>
+                                <g>
+                                  <rect x="82.8" y="82.1" class="st12" width="25.8" height="1.5" />
+                                </g>
+                                <g>
+                                  <rect x="82.8" y="117.9" class="st12" width="26.1" height="1.5" />
+                                </g>
+                                <g>
+                                  <rect x="142.4" y="82.1" class="st12" width="25.8" height="1.5" />
+                                </g>
+                                <g>
+                                  <rect x="142" y="117.9" class="st12" width="26.2" height="1.5" />
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g id="Back">
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="back">
+                        <svg version="1.1" id="cardback" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+                          x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                          <g id="Front">
+                            <line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
+                          </g>
+                          <g id="Back">
+                            <g id="Page-1_2_">
+                              <g id="amex_2_">
+                                <path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                    C0,17.9,17.9,0,40,0z" />
+                              </g>
+                            </g>
+                            <rect y="61.6" class="st2" width="750" height="78" />
+                            <g>
+                              <path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+                                C707.1,246.4,704.4,249.1,701.1,249.1z" />
+                              <rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5" />
+                              <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
+                              <path class="st5"
+                                d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
+                            </g>
+                            <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7">000</text>
+                            <g class="st8">
+                              <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">security code</text>
+                            </g>
+                            <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
+                            <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
+                            <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13"></text>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-container">
+                    <div class="field-container">
+                      <label for="name">Имя</label>
+                      <input id="name" class="form-control" maxlength="20" type="text" pattern="[A-Za-z]+" title="Допускается ввод только буквенных символов" required>
+                    </div>
+                    <div class="field-container">
+                      <label for="cardnumber">Номер карты</label><span id="generatecard"></span>
+                      <input id="cardnumber" class="form-control" type="text" inputmode="numeric" minlength="19" maxlength="19" required>
+                      <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1"
+                        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                      </svg>
+                    </div>
+                    <div class="field-container">
+                      <label for="expirationdate">Срок действия</label>
+                      <input id="expirationdate" class="form-control" type="text" minlength="5" maxlength="5" inputmode="numeric" required>
+                    </div>
+                    <div class="field-container">
+                      <label for="securitycode">CVC</label>
+                      <input id="securitycode" class="form-control" type="text" pattern="[0-9]*" inputmode="numeric" required>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input check-input-buy" type="checkbox" value="" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">
+                      Примите условия и соглашения
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="btn-call">
+                    <button class="buy__button" type="submit">Оплатить</button>
+                  </div>
+                  <div class="price-call">
+                    1234р.
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="cart__items">
+            <div class="cart__item">
+              <div class="item-cart">
+                <div class="item-cart__image">
+                  <img src="/images/бальзам1.jpg" alt="">
+                </div>
+                <div class="item-cart__content">
+                  <a href="/pages/product.html">
+                    <h4 class="item-cart__title">Cegth njdfh</h4>
+                  </a>
+                  <p class="item-cart__descr">Super opicanyasdasjkd asnkd samd asdsadasd</p>
+                </div>
+                <div class="item-cart__counter">
+                    <input type="number" id="typeNumber" class="form-control" />
+                </div>
+                <div class="item-cart__price">
+                  1999р.
+                </div>
+                <div class="item-cart__delete">
+                  <button type="button" class="btn-close btn btn-secondary" 
+                  aria-label="Close" data-bs-toggle="tooltip" 
+                  data-bs-placement="right" title="Удалить"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <ul class="footer__list">
+          <div class="footer__logo">
+            <div class="footer__img">
+              <a href="../index.html">
+                <img src="/icons/logo.png" alt="" />
+              </a>
+            </div>
+            <div class="footer__name">
+              <a href="../index.html">Аптека АПТЕК</a>
+            </div>
+          </div>
+        </ul>
+        <ul class="footer__list">
+          <li class="footer__item">
+            Сайт создал
+            <a href="https://t.me/Mne13Years">Соколовский Денис Игоревич</a>
+          </li>
+          <li class="footer__item"></li>
+          <li class="footer__item"></li>
+          <li class="footer__item"></li>
+        </ul>
+      </footer>
+    </div>
+    
+  </body>
+</html>
