@@ -82,9 +82,48 @@
                         </button>
                     </div>
                 </div> 
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body">
+                    <form class="row g-3">
+                      <div class="col-md-4">
+                        <label for="validationDefault01" class="form-label">URL</label>
+                        <input type="text" class="form-control" id="addURL" value="https://fito.by/wp-content/uploads/2023/08/189bfe6b23f_13894.01-600x600.jpg" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Название товара</label>
+                        <input type="text" class="form-control" id="addTitle" value="1" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault03" class="form-label">Описание</label>
+                        <input type="text" class="form-control" id="addDescription" value="1" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Цена</label>
+                        <input type="text" class="form-control" id="addPrice" value="1" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Количество</label>
+                        <input type="text" class="form-control" id="addCount" value="1" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Рейтинг</label>
+                        <input type="text" class="form-control" id="addRate" value="1" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault05" class="form-label">Изготовитель</label>
+                        <input type="text" class="form-control" id="addSource" value="1" required>
+                      </div>
+                      <div class="col-12">
+                        <div id="addClick" class="btn-call">
+                          <button class="add__button" type="submit">Добавить</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               <div class="cart__items">
-                <div class="cart__item">
-                  <div class="item-cart">
+                <div class="items">
+                  <div class="item">
                     <div class="item-cart__image">
                       <img src="/images/бальзам1.jpg" alt="">
                     </div>
@@ -133,5 +172,7 @@
             </ul>
         </footer>
     </div>
+    <script src="/scripts/admin.js"></script>
+
 </body>
 </html>

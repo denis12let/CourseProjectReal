@@ -1,7 +1,18 @@
 const registerClick = document.querySelector("#registerClick");
+const loginLink = document.getElementById("login-link");
+loginLink.style.color = "limegreen";
+
+const token = localStorage.getItem('token');
+if(token){
+    loginLink.style.color = 'limegreen';
+    console.log("Пользователь авторизирован");
+}else{
+    console.log("Пользователь не авторизирован");
+}
+
 
 function fetchRegister(registerData) {    
-    fetch("http://localhost:8080/users", {
+    fetch("http://localhost:8080/users/register", {
         method: "POST", 
         headers: {
             'Content-Type': 'application/json',
@@ -12,10 +23,12 @@ function fetchRegister(registerData) {
       })
     .then(res => res.json())
     .then(data => {
+        console.log(data);
         if (data.message === "Пользователь успешно зарегистрирован") {
-            const loginButton = document.getElementById('login-button');
-            loginButton.style.backgroundColor = 'green';
-            loginButton.textContent = 'Вы успешно зарегистрированы';
+            const token = data.token; // Предполагается, что сервер возвращает токен в поле 'token'
+            localStorage.setItem('token', token); // Сохраняем токен в локальном хранилище
+            
+            location.replace("../index.html")
         } else {
             console.log('Ошибка регистрации');
         }
@@ -36,6 +49,21 @@ function fetchRegister(registerData) {
 //     .then(res => res.json())
 //     .then(data => console.log(data));
 // }
+
+// function sendAuthenticatedRequest(url, method, body = null) {
+//     const token = localStorage.getItem('token');
+//     const headers = {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`,
+//     };
+//     let options = {
+//         method: method,
+//         headers: headers,
+//     };
+//     if (body)   options.body = JSON.stringify(body);
+//     return fetch(url, options);
+// }
+
 function handleRegisterClick() {
     const login = document.querySelector("#regLogin");
     const password = document.querySelector("#regPassword");

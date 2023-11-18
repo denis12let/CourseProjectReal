@@ -32,34 +32,6 @@ a:hover{
     max-width: 37px;
 }
 
-/* .cart__container{
-    display: flex;
-    flex-direction: column;
-    max-width: 1300px;
-}
-
-.cart__items{
-    display: flex;
-    flex-direction: column;
-}
-.item-cart{
-    display: flex;
-    align-items: center;
-}
- */
- 
-
-/* .window__buy{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-} */
-
- .item img{
-    display:block;
-    width: 170px;
-    border-radius: 40px;
-}
 .cart__container{
     max-width: 1000px;
 }
@@ -71,12 +43,12 @@ a:hover{
     flex-direction: column;
 
 }
-.cart__item{
+.items{
     margin-bottom: 20px;
     border-radius: 50px;
 }
 
-.item-cart{
+.item{
     align-items: flex-start;
     justify-content: space-between;
     display: flex;

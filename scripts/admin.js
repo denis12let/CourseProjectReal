@@ -1,54 +1,28 @@
-const loginLink = document.getElementById("login-link");
-const basketLink = document.getElementById("basket-link");
-const katalogLink = document.getElementById("katalog-link");
-katalogLink.style.color = "limegreen"
-const token = localStorage.getItem('token');
-// function handleFruitChange() {
-//     const selectElement = document.getElementById('fruits');
-//     const selectedFruit = selectElement.value;
-//     alert('Вы выбрали: ' + selectedFruit);
-//   }
+const addProductClick = document.querySelector("#addClick");
 
-loginCheck = () => {
-  if(token){
-      loginLink.textContent = "Выйти";
-      loginLink.href = "#";
-      loginLink.style.textDecoration = "underline";
-      console.log("Пользователь авторизирован");
-  }else{
-      loginLink.href = "/pages/auth.html";
-      console.log("Пользователь не авторизирован");
-  }
+function fetchProduct(productData) {    
+    fetch("http://localhost:8080/products/add", {
+        method: "POST", 
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+             Accept: 'application/json',
+          },
+        body: JSON.stringify(productData),
+      })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (data.message === "Продукт успешно зарегистрирован") {
+            // location.replace("../index.html")
+        } else {
+            console.log('Ошибка добавления');
+        }
+    })
+    .catch(error => console.log(error));
 }
 
-loginLink.onclick = (event) => {
-  if (loginLink.textContent === "Выйти") {
-    loginLink.textContent = "Войти";
-    localStorage.removeItem('token');
-    loginLink.style.textDecoration = "none";
-    console.log("Пользователь больше не авторизирован");
-  event.preventDefault();
-    loginLink.href = "/pages/auth.html";
-  }
-}
-basketLink.onclick = (event) => {
-  if (loginLink.textContent === "Выйти"){
-    basketLink.href = "/pages/basket.html";
-  }else{
-    basketLink.href = "#";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  var filterButton = document.querySelector(".filter_button");
-  var filterBlock = document.querySelector(".filter_block");
-  
-  filterButton.addEventListener("click", function() {
-    filterBlock.classList.toggle("show");
-    });
-});
-
-fetch("https://6554716863cafc694fe67789.mockapi.io/items")
+fetch("http://localhost:8080/products")
   .then(res => res.json())
   .then(data => {
       const itemContainer = document.querySelector('.items'); // Замените селектор на селектор вашего контейнера, в котором будете отрисовывать карточки товара
@@ -92,4 +66,25 @@ fetch("https://6554716863cafc694fe67789.mockapi.io/items")
           itemContainer.appendChild(itemElement); // Добавляем карточку товара в контейнер
       });
 });
-loginCheck();
+
+handleAddProductClick = () => {
+    const url = document.querySelector("#addURL");
+    const title = document.querySelector("#addTitle");
+    const description = document.querySelector("#addDescription");
+    const price  = document.querySelector("#addPrice");
+    const count = document.querySelector("#addCount");
+    const rate = document.querySelector("#addRate");
+    const source = document.querySelector("#addSource");
+    const productData = {
+        url: url.value,
+        title: title.value,
+        description: description.value,
+        price: price.value,
+        count: count.value,
+        rate: rate.value,
+        source: source.value
+    };
+    fetchProduct(productData);
+}
+
+addProductClick.addEventListener('click', handleAddProductClick());

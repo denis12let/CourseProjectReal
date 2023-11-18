@@ -21,11 +21,6 @@
     <link rel="stylesheet" href="/styles/basket.css" />
     <link rel="stylesheet" href="/styles/form.css" />
 
-
-    <script src="/scripts/bankCard.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
-
-    
   </head>
   <body>
     <div class="wrapper">
@@ -57,7 +52,7 @@
                   <img src="/icons/user_icon.png" alt="" />
                 </div>
                 <div class="auth__ref">
-                  <a href="/pages/auth.html">Войти</a>
+                  <a id="login-link" href="/pages/auth.html">Войти</a>
                 </div>
               </div>
               <div class="basket">
@@ -65,7 +60,7 @@
                   <img src="/icons/basket.png" alt="" />
                 </div>
                 <div class="basket__ref">
-                  <a href="/pages/basket.html">Корзина</a>
+                  <a id="katalog-link" href="/pages/basket.html">Корзина</a>
                 </div>
               </div>
             </div>
@@ -309,6 +304,8 @@
         </ul>
       </footer>
     </div>
-    
+    <script src="/scripts/bankCard.js"></script>
+    <script src="/scripts/basket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
   </body>
 </html>
