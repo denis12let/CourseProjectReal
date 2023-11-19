@@ -55,13 +55,13 @@ a:hover{
     display: flex;
     gap: 10px;
     padding: 10px;
+    min-height: 170px;
     border: 1px solid rgb(221, 216, 216);
     background-color: white;
     border-radius: 25px;
 }
 img{
-    display: block;
-    max-width: 100%;
+    max-width: 200px;
 }
 .item-cart__image{
     flex: 0 0 100px;
@@ -105,7 +105,7 @@ img{
 }
 .collapse, .collapsing, .collapse.show{
     margin: 5px;
-    max-width: 890px;
+    max-width: 100%;
 }
 .card-body{
     border-radius: 20px;

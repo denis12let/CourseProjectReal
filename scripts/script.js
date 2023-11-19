@@ -1,6 +1,7 @@
 const loginLink = document.getElementById("login-link");
 const basketLink = document.getElementById("basket-link");
 const katalogLink = document.getElementById("katalog-link");
+// const productLinkClick = document.querySelector("product-link");
 katalogLink.style.color = "limegreen"
 const token = localStorage.getItem('token');
 // function handleFruitChange() {
@@ -8,6 +9,8 @@ const token = localStorage.getItem('token');
 //     const selectedFruit = selectElement.value;
 //     alert('Вы выбрали: ' + selectedFruit);
 //   }
+
+
 
 loginCheck = () => {
   if(token){
@@ -68,24 +71,12 @@ fetch("http://localhost:8080/products/view")
                   <div class="item_image">
                       <img src="${item.imageUrl}" alt="" />
                   </div>
-                  <div class="item_name">
-                    <a href="/pages/product.html?itemId=${item.id}">${item.title}</a>
-                  </div>
-                  <div class="item_price">${item.price} руб.</div>
-              </div>
-              <div class="views">
-                  <div class="rate">
-                      <div class="rate_icon">
-                          <img src="/icons/rate.png" />
-                      </div>
-                      <div class="rate_count">${item.rating}</div>
-                  </div>
-                  <div class="review">
-                      <div class="rev_count">2 отзыва</div>
-                      <div class="review_icon">
-                          <img src="/icons/review.png" />
-                      </div>
-                  </div>
+                  <div class="item__info">
+                    <div id="product-link" class="item_name">
+                      <a href="/pages/product.html?itemId=${item.id}">${item.title}</a>
+                    </div>
+                    <div class="item_price">${item.price} руб.</div>
+                </div>
               </div>
           `;
             
@@ -93,5 +84,10 @@ fetch("http://localhost:8080/products/view")
       });
 });
 }
+// handleAddProductClick = () => {
+  
+// }
+
 viewProduct();
 loginCheck();
+// productLinkClick.addEventListener('click', handleAddProductClick);

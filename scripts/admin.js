@@ -59,7 +59,7 @@ const viewProduct = () => {
                 <input type="number" id="typeNumber" class="form-control" value="${item.count}"/>
             </div>
             <div class="item-cart__price">
-               ${item.price}
+               ${item.price} руб.
             </div>
             <div id="deleteClick" class="item-cart__delete">
               <button id=${item.id} type="button" class="btn-close btn btn-secondary" 
@@ -100,8 +100,6 @@ function fetchDeleteProduct(id) {
     .catch(error => console.log(error));
 }
 
-
-
 function handleDeleteProductClick(event){
     const productData = Number(event.target.id);
     console.log(typeof productData);
@@ -125,6 +123,13 @@ handleAddProductClick = () => {
         rate: rate.value,
         source: source.value
     };
+    imageUrl.value = "";
+    title.value = "";
+    description.value = "";
+    price.value = "";
+    count.value = "";
+    rate.value = "";
+    source.value = "";
     fetchAddProduct(productData);
 }
 
