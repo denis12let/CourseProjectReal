@@ -1,6 +1,10 @@
 const addProductClick = document.querySelector("#addClick");
+const deleteProductClick = document.querySelector("#deleteClick");
+handleDeleteProductClick = () => {
+    console.log(3742748);
+}
 
-function fetchProduct(productData) {
+function fetchAddProduct(productData) {
     fetch("http://localhost:8080/products/add", {
         method: "POST", 
         headers: {
@@ -23,10 +27,11 @@ function fetchProduct(productData) {
     .catch(error => console.log(error));
 }
 
-fetch("http://localhost:8080/products/")
+setTimeout(() => fetch("http://localhost:8080/products/view")
   .then(res => res.json())
   .then(data => {
       const itemContainer = document.querySelector('.items'); 
+      console.log(data);
       data.forEach(item => {
           const itemElement = document.createElement('div');
           itemElement.href = "link";
@@ -45,16 +50,17 @@ fetch("http://localhost:8080/products/")
             <div class="item-cart__price">
                ${item.price}
             </div>
-            <div class="item-cart__delete">
-              <button type="button" class="btn-close btn btn-secondary" 
+            <div id="deleteClick" class="item-cart__delete">
+              <button id="${item}" type="button" class="btn-close btn btn-secondary" 
               aria-label="Close" data-bs-toggle="tooltip" 
               data-bs-placement="right" title="Удалить"></button>
             </div>
           `;
             
-          itemContainer.appendChild(itemElement); // Добавляем карточку товара в контейнер
+          itemContainer.appendChild(itemElement); 
       });
-});
+}).then(() => {
+}),15000);
 
 handleAddProductClick = () => {
     const imageUrl = document.querySelector("#addURL");
@@ -73,7 +79,8 @@ handleAddProductClick = () => {
         rate: rate.value,
         source: source.value
     };
-    fetchProduct(productData);
+    fetchAddProduct(productData);
 }
 
+deleteProductClick.addEventListener('click', handleDeleteProductClick);
 addProductClick.addEventListener('click', handleAddProductClick);
