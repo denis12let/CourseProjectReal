@@ -51,11 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
 fetch("https://6554716863cafc694fe67789.mockapi.io/items")
   .then(res => res.json())
   .then(data => {
-      const itemContainer = document.querySelector('.items'); // Замените селектор на селектор вашего контейнера, в котором будете отрисовывать карточки товара
-      
-      // Для каждого товара в полученных данных
+      const itemContainer = document.querySelector('.items'); 
+      itemContainer.innerHTML = ''; 
       data.forEach(item => {
-          // Создаем разметку карточки товара
+          console.log(item);
           const itemElement = document.createElement('div');
           itemElement.href = "link";
           itemElement.classList.add('item');

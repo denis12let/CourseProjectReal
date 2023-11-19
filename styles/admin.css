@@ -33,7 +33,8 @@ a:hover{
 }
 
 .cart__container{
-    max-width: 1000px;
+
+    width: 1000px;
 }
 .cart__title{
     margin-bottom: 10px;

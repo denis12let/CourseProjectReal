@@ -1,8 +1,5 @@
 const addProductClick = document.querySelector("#addClick");
-const deleteProductClick = document.querySelector("#deleteClick");
-handleDeleteProductClick = () => {
-    console.log(3742748);
-}
+
 
 function fetchAddProduct(productData) {
     fetch("http://localhost:8080/products/add", {
@@ -18,7 +15,7 @@ function fetchAddProduct(productData) {
     .then(data => {
         console.log(data);
         if (data.message === "Продукт успешно зарегистрирован") {
-
+            fetchView();
             // location.replace("../index.html")
         } else {
             console.log('Ошибка добавления');
@@ -27,11 +24,25 @@ function fetchAddProduct(productData) {
     .catch(error => console.log(error));
 }
 
-setTimeout(() => fetch("http://localhost:8080/products/view")
+// function removeProductFromPage(id) {
+//     const productElement = document.getElementById(id); // Находим элемент товара по id
+//     if (productElement) {
+//       productElement.remove(); // Удаляем элемент из DOM
+//     }
+// }
+function removeProductFromPage(id) {
+    const productElement = document.getElementById(id);
+    if (productElement && productElement.parentNode) {
+      productElement.parentNode.removeChild(productElement);
+    }
+  }
+
+function fetchView(){
+    fetch("http://localhost:8080/products/view")
   .then(res => res.json())
   .then(data => {
       const itemContainer = document.querySelector('.items'); 
-      console.log(data);
+      itemContainer.innerHTML = ''; 
       data.forEach(item => {
           const itemElement = document.createElement('div');
           itemElement.href = "link";
@@ -51,16 +62,52 @@ setTimeout(() => fetch("http://localhost:8080/products/view")
                ${item.price}
             </div>
             <div id="deleteClick" class="item-cart__delete">
-              <button id="${item}" type="button" class="btn-close btn btn-secondary" 
+              <button id=${item.id} type="button" class="btn-close btn btn-secondary" 
               aria-label="Close" data-bs-toggle="tooltip" 
               data-bs-placement="right" title="Удалить"></button>
             </div>
           `;
-            
           itemContainer.appendChild(itemElement); 
+
+          const deleteButton = itemElement.querySelector("#deleteClick");
+          deleteButton.addEventListener('click', handleDeleteProductClick);
       });
-}).then(() => {
-}),15000);
+});
+}
+fetchView();
+function fetchDeleteProduct(id) {
+    fetch(`http://localhost:8080/products/${id}`, {
+        method: "DELETE", 
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+             Accept: 'application/json',
+          },
+        //body: id,
+          
+      })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (typeof data === "number") {
+            console.log(`Продукт id=${data} успешно удален`);
+            //removeProductFromPage(id); // Удаляем товар из страницы\
+            fetchView();
+            //location.replace("/pages/admin.html")
+        } else {
+            console.log("Ошибка удаления");
+        }
+    })
+    .catch(error => console.log(error));
+}
+
+
+
+function handleDeleteProductClick(event){
+    const productData = Number(event.target.id);
+    console.log(typeof productData);
+    fetchDeleteProduct(productData);
+}
 
 handleAddProductClick = () => {
     const imageUrl = document.querySelector("#addURL");
@@ -82,5 +129,4 @@ handleAddProductClick = () => {
     fetchAddProduct(productData);
 }
 
-deleteProductClick.addEventListener('click', handleDeleteProductClick);
 addProductClick.addEventListener('click', handleAddProductClick);
