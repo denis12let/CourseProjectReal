@@ -15,7 +15,7 @@ function fetchAddProduct(productData) {
     .then(data => {
         console.log(data);
         if (data.message === "Продукт успешно зарегистрирован") {
-            fetchView();
+            viewProduct();
             // location.replace("../index.html")
         } else {
             console.log('Ошибка добавления');
@@ -30,15 +30,15 @@ function fetchAddProduct(productData) {
 //       productElement.remove(); // Удаляем элемент из DOM
 //     }
 // }
-function removeProductFromPage(id) {
-    const productElement = document.getElementById(id);
-    if (productElement && productElement.parentNode) {
-      productElement.parentNode.removeChild(productElement);
-    }
-  }
+// function removeProductFromPage(id) {
+//     const productElement = document.getElementById(id);
+//     if (productElement && productElement.parentNode) {
+//       productElement.parentNode.removeChild(productElement);
+//     }
+//   }
 
-function fetchView(){
-    fetch("http://localhost:8080/products/view")
+const viewProduct = () => {
+  fetch("http://localhost:8080/products/view")
   .then(res => res.json())
   .then(data => {
       const itemContainer = document.querySelector('.items'); 
@@ -72,9 +72,9 @@ function fetchView(){
           const deleteButton = itemElement.querySelector("#deleteClick");
           deleteButton.addEventListener('click', handleDeleteProductClick);
       });
-});
+    });
 }
-fetchView();
+viewProduct();
 function fetchDeleteProduct(id) {
     fetch(`http://localhost:8080/products/${id}`, {
         method: "DELETE", 
@@ -88,11 +88,10 @@ function fetchDeleteProduct(id) {
       })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         if (typeof data === "number") {
             console.log(`Продукт id=${data} успешно удален`);
             //removeProductFromPage(id); // Удаляем товар из страницы\
-            fetchView();
+            viewProduct();
             //location.replace("/pages/admin.html")
         } else {
             console.log("Ошибка удаления");

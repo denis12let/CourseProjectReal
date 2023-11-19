@@ -31,6 +31,7 @@ loginLink.onclick = (event) => {
     loginLink.href = "/pages/auth.html";
   }
 }
+
 basketLink.onclick = (event) => {
   if (loginLink.textContent === "Выйти"){
     basketLink.href = "/pages/basket.html";
@@ -48,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-fetch("https://6554716863cafc694fe67789.mockapi.io/items")
+const viewProduct = () => {
+fetch("http://localhost:8080/products/view")
   .then(res => res.json())
   .then(data => {
       const itemContainer = document.querySelector('.items'); 
       itemContainer.innerHTML = ''; 
       data.forEach(item => {
-          console.log(item);
           const itemElement = document.createElement('div');
           itemElement.href = "link";
           itemElement.classList.add('item');
@@ -91,4 +92,6 @@ fetch("https://6554716863cafc694fe67789.mockapi.io/items")
           itemContainer.appendChild(itemElement); // Добавляем карточку товара в контейнер
       });
 });
+}
+viewProduct();
 loginCheck();
