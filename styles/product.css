@@ -32,18 +32,31 @@ a:hover{
     max-width: 37px;
 }
 
+.main__container{
+    flex: 1 1 100%;
+}
+
+.item__info{
+    flex: 1 1 100%;
+    position: relative;
+}
+
 .cart__container{
     background-color: white;
     border-radius: 60px;
+    flex: 1 1 100%;
+    max-height: 460px;
 }
 .item__container{
     padding-top: 30px;
     display: flex;
-
+    flex: 1 1 100%;
 }
 
 .item__container img{
     border-radius: 30px;
+    max-width: 400px;
+    max-height: 400px;
 }
 .item__price{
     padding-top: 20px;
@@ -53,7 +66,9 @@ a:hover{
     padding-top: 30px;
 }
 .button__basket{
-    padding-top: 60px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
 }
 .btn__basket{
     margin-top: 10px;

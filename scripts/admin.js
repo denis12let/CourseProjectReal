@@ -106,7 +106,7 @@ function handleDeleteProductClick(event){
     fetchDeleteProduct(productData);
 }
 
-handleAddProductClick = () => {
+const handleAddProductClick = () => {
     const imageUrl = document.querySelector("#addURL");
     const title = document.querySelector("#addTitle");
     const description = document.querySelector("#addDescription");

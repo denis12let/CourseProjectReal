@@ -12,7 +12,7 @@ const token = localStorage.getItem('token');
 
 
 
-loginCheck = () => {
+const loginCheck = () => {
   if(token){
       loginLink.textContent = "Выйти";
       loginLink.href = "#";

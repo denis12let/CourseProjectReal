@@ -22,7 +22,7 @@ function fetchAuth(authData) {
             console.log(data);
             console.log(jwtDecode(token))
 
-            //location.replace("../index.html")
+            location.replace("../index.html")
         } else {
             console.log('Ошибка регистрации');
         }
@@ -41,7 +41,7 @@ function handleAuthClick() {
     if (authData.username === "admin" && authData.password === "admin"){
         location.replace("/pages/admin.html");
     }
-    fetchAuth(authData)
+    fetchAuth(authData);
 
     //location.replace("../index.html")
     // window.location.href="http://172.19.80.1:5500/CourseProjectReal/basket/basket.html";
